@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 
 import './styles/main.scss';
 
-import { Catalogue } from './Catalogue/Catalogue.js';
+import { Catalog } from './Catalog/Catalog';
 
 const App = () => {
-  return <Catalogue />;
+  return <Catalog />;
 }
 
 ReactDOM.render(
