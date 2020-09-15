@@ -8,7 +8,7 @@ export const Sets = ({ sets }) => {
         <li style={{backgroundColor: '#222', width: "50%"}} key={set.set_num}>
           <h2>{set.name}</h2>
           <h4>{set.year}</h4>
-          <img style={{width: 300, height: 150}} src={set.set_img_url} alt={set.name} />
+          <img style={{width: 160, height: 120}} src={set.set_img_url} alt={set.name} />
         </li>
       ))}
     </ul>

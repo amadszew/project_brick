@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Subthemes } from './Subthemes';
+import { Subthemes } from '../Subthemes/Subthemes';
 
 export const Themes = props => {
   const {
