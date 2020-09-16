@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  background: #fafafa;
+  padding: 20px 10px;
+  box-sizing: content-box;
+
+  &__logo {
+    width: 350px;
+    height: auto;
+  }
+}
