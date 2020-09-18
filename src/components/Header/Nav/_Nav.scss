@@ -1,0 +1,36 @@
+.nav {
+  width: 25%;
+  height: 100%;
+
+  &__list {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__element {
+      height: 80%;
+      width: 33%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5px;
+      margin-right: 5px;
+      border-left: 1px solid #ccc;
+      &:last-of-type {
+        margin-right: 0;
+        border-right: 1px solid #ccc;
+      }
+
+      &-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #000;
+        width: 100%;
+        height: 100%;
+        font-size: 1.1rem;
+      }
+    }
+  }
+}

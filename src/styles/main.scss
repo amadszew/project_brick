@@ -1,4 +1,19 @@
+@import "reset";
+
+//Header
+@import '../components/Header/Header';
+@import '../components/Header/Nav//Nav';
+@import '../components/Header/LogIn/LogIn';
+
+//Catalog
+@import "../components/Catalog/Catalog";
+
 body {
   background: #333;
-  color: #fff
+  color: #fff;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
 }
