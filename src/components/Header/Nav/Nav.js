@@ -6,13 +6,19 @@ export const Nav = () => {
     <nav className="nav">
       <ul className="nav__list">
         <li className="nav__list__element">
-          <NavLink to="#">Link</NavLink>
+          <NavLink className="nav__list__element-link" to="#">
+            Link
+          </NavLink>
         </li>
-        <li>
-          <NavLink to="#">Link</NavLink>
+        <li className="nav__list__element">
+          <NavLink className="nav__list__element-link" to="#">
+            Link
+          </NavLink>
         </li>
-        <li>
-          <NavLink to="#">Link</NavLink>
+        <li className="nav__list__element">
+          <NavLink className="nav__list__element-link" to="#">
+            Link
+          </NavLink>
         </li>
       </ul>
     </nav>

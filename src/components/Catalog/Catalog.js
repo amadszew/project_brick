@@ -62,7 +62,7 @@ export const Catalog = () => {
   }, [selectedTheme, selectedSubtheme]);
 
   return (
-    <main>
+    <main className="catalog">
       <Themes 
         themes={themes} 
         selectedTheme={selectedTheme} 
