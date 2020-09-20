@@ -1,16 +1,15 @@
 import React from 'react';
 
-export const Sets = ({ sets }) => {
-
+export const Sets = ({sets}) => {
   return (
-    <ul>
+    <div style={{display: 'flex', flexWrap: 'wrap'}}>
       {sets.map(set => (
-        <li style={{backgroundColor: '#222', width: "50%"}} key={set.set_num}>
-          <h2>{set.name}</h2>
-          <h4>{set.year}</h4>
-          <img style={{width: 160, height: 120}} src={set.set_img_url} alt={set.name} />
-        </li>
+        <div key={set.set_num} style={{border: '1px solid #000'}}>
+          <p>{set.name}</p>
+          <img src={set.set_img_url} alt={set.name} style={{width: 100, height: 100}} />
+        </div>
       ))}
-    </ul>
+    </div>
   );
-};
+}
+

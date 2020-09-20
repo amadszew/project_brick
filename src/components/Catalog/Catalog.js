@@ -13,7 +13,7 @@ export const Catalog = () => {
   const [themesStructure, setThemesStructure] = useState([]);
   const [sets, setSets] = useState([]);
   const [setsMap, setSetsMap] = useState([]);
-  const [setsBasedOnSelectedTheme, setSetsBasedOnTheme] = useState([]);
+  const [setsBasedOnSelectedTheme, setSetsBasedOnSelectedTheme] = useState([]);
 
   //* Fetching list of sets from every pages
   const fetchSets = url => {
@@ -79,7 +79,7 @@ export const Catalog = () => {
 
     setSetsMap(setsMap)
 
-    //* creating themes structure / parent -> child -> grandchild
+    //* creating themes structure ( parent -> child -> grandchild )
     let parents = {};
     let parent = null;
     let child = null;
@@ -124,7 +124,7 @@ export const Catalog = () => {
   const filterSetsBasedOnThemes = id => {
 
     let filteredThemesArray = [];
-    setSetsBasedOnTheme([]);
+    setSetsBasedOnSelectedTheme([]);
 
     const childrens = themesStructure[id].childrens;
 
@@ -153,7 +153,7 @@ export const Catalog = () => {
     {Object.values(setsMap).forEach(sets => {
       sets.map(set => {
         if(filteredThemesArray.includes(set.theme_id)) {
-          setSetsBasedOnTheme(prev => [...prev, set])
+          setSetsBasedOnSelectedTheme(prev => [...prev, set])
         }
       })
     })}
@@ -162,24 +162,12 @@ export const Catalog = () => {
 
   return (
     <main className="catalog">
+      <Themes 
+        themesStructure={themesStructure}
+        onFilterSets={filterSetsBasedOnThemes}
+      />
 
-      <div>
-        {Object.values(themesStructure).map(({id, name}) => (
-          <button key={id} onClick={() => filterSetsBasedOnThemes(id)}>
-            {name}
-          </button>
-        ))}
-      </div>
-
-      <div style={{display: 'flex', flexWrap: 'wrap'}}>
-        {setsBasedOnSelectedTheme.map(set => (
-          <div key={set.set_num} style={{border: '1px solid #000'}}>
-            <p>{set.name}</p>
-            <img src={set.set_img_url} alt={set.name} style={{width: 100, height: 100}} />
-          </div>
-        ))}
-      </div>
-
+      <Sets sets={setsBasedOnSelectedTheme} />
     </main>
   );
 }
