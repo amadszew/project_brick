@@ -9,8 +9,11 @@ const APIThemes = 'https://rebrickable.com/api/v3/lego/themes/?key=348ddf6de615a
 const APISets = 'https://rebrickable.com/api/v3/lego/sets/?key=348ddf6de615ae3d89f79a2f46007745&page_size=1000&page=1';
 
 export const Catalog = () => {
-  const [sets, setSets] = useState([]);
   const [themes, setThemes] = useState([]);
+  const [themesStructure, setThemesStructure] = useState([]);
+  const [sets, setSets] = useState([]);
+  const [setsMap, setSetsMap] = useState([]);
+  const [setsWithSelectedThemes, setSetsWithSelectedThemes] = useState([]);
 
   const fetchSets = (url) => {
     fetch(url)
@@ -71,6 +74,8 @@ export const Catalog = () => {
         } 
       });
 
+      setSetsMap(setsMap)
+
       // SETTING THEMES
       let parents = {};
       let parent = null;
@@ -83,37 +88,87 @@ export const Catalog = () => {
         if (theme.parent_id === null) {
           parents[theme.id] = {
             ...theme,
-            children: {}
+            childrens: {}
           }
           parent = parents[theme.id];
         }
 
         //set child themes
         if (theme.parent_id === parent.id) {
-          parent.children[theme.id] = {
+          parent.childrens[theme.id] = {
             ...theme,
-            children: {},
+            childrens: {},
           }
         
-          child = parent.children[theme.id];
+          child = parent.childrens[theme.id];
         }
 
         //set granchild themes
         if(child && theme.parent_id === child.id) {
-          child.children[theme.id] = {
+          child.childrens[theme.id] = {
             ...theme,
-            children: {},
+            childrens: {},
           }
 
-          grandChild = child.children[theme.id]
+          grandChild = child.childrens[theme.id]
         }
       });
+      setThemesStructure(parents);
   }
 
+  const displaySetsBasedOnTheme = id => {
+    let filteredThemesArray = [];
+    setSetsWithSelectedThemes([]);
+
+    const childrens = themesStructure[id].childrens;
+
+    const isNotEmptyObject = Object.values(childrens).length !== 0 && childrens.constructor === Object;
+
+    filteredThemesArray.push(id);
+
+    if (isNotEmptyObject) {
+      Object.values(childrens).forEach(child => {
+        filteredThemesArray.push(child.id)
+      });
+    }
+    
+    Object.values(childrens).forEach(child => {
+      if (isNotEmptyObject) {
+        Object.values(child.childrens).forEach(grandchild => {
+          filteredThemesArray.push(grandchild.id)
+        })
+      }
+    })
+
+    // setSelectedThemesId(filteredThemesArray);
+
+    {Object.values(setsMap).forEach(sets => {
+      sets.map(set => {
+        if(filteredThemesArray.includes(set.theme_id)) {
+          setSetsWithSelectedThemes(prev => [...prev, set])
+        }
+      })
+    })}
+
+  }
 
   return (
     <main className="catalog">
-
+      {Object.values(themesStructure).map(({id, name}) => (
+        <button key={id} onClick={() => displaySetsBasedOnTheme(id)}>
+          {name}
+        </button>
+      ))}
+      <div style={{display: 'flex', flexWrap: 'wrap'}}>
+        {setsWithSelectedThemes && (
+          setsWithSelectedThemes.map(set => (
+            <div key={set.set_num}>
+              <p>{set.name}</p>
+              <img src={set.set_img_url} alt={set.name} style={{width: 100, height: 100}} />
+            </div>
+          ))
+        )}
+      </div>
     </main>
   );
 }
