@@ -8,7 +8,6 @@ import {
 
 import { Themes } from './Themes/Themes';
 import { SetsList } from './SetsList/SetsList';
-import { TestComponent } from './TestComponent';
 
 export const Catalog = props => {
   const [setsBasedOnSelectedTheme, setSetsBasedOnSelectedTheme] = useState([]);
