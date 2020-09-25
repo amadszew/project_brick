@@ -129,13 +129,15 @@ const App = () => {
     <div className="App">
       <Router>
         <Header /> 
-        <Route exact path="/" render={() => <h1>Home</h1>} />
-        <Route path="/catalog" render={() => (
+        <Route exact path="/">
+          <h1>Home</h1>
+        </Route>
+        <Route path="/catalog">
           <Catalog 
             themesStructure={themesStructure}
             setsMap={setsMap}
           />
-        )} />
+        </Route>
       </Router>
     </div>
   );

@@ -12,7 +12,10 @@ export const Themes = props => {
   return (
     <div>
       {Object.values(themesStructure).map(({id, name}) => (
-        <Link to={`${location.pathname}/sets-list/${name}`} key={id} onClick={() => onFilterSets(id)}>
+        <Link 
+          to={`${location.pathname}/sets-list/${name}`} 
+          key={id} 
+          onClick={() => onFilterSets(id)}>
           {name}
         </Link>
       ))}

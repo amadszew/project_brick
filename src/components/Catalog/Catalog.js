@@ -8,6 +8,7 @@ import {
 
 import { Themes } from './Themes/Themes';
 import { SetsList } from './SetsList/SetsList';
+import { TestComponent } from './TestComponent';
 
 export const Catalog = props => {
   const [setsBasedOnSelectedTheme, setSetsBasedOnSelectedTheme] = useState([]);
@@ -72,19 +73,18 @@ export const Catalog = props => {
           </li>
         </ul>
       )} 
-      
-      <Route 
-        exact path={`${match.url}/themes`} 
-        render={(props) => (
-          <Themes
-            themesStructure={themesStructure} 
-            onFilterSets={filterSetsBasedOnThemes}
-          />
-        )} />
+
+      <Route exact path={`${match.url}/themes`}>
+        <Themes
+          themesStructure={themesStructure} 
+          onFilterSets={filterSetsBasedOnThemes}
+        />
+      </Route>
         
-      <Route 
-        path={`${match.url}/themes/sets-list/:name`} 
-        render={() => <SetsList sets={setsBasedOnSelectedTheme} />} />
+      <Route path={`${match.url}/themes/sets-list/:name`}>
+        <SetsList sets={setsBasedOnSelectedTheme} />
+      </Route>
+
     </main>
   );
 }
