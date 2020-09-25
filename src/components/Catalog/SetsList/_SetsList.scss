@@ -1,0 +1,13 @@
+.sets-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__set {
+    border: 1px solid #000
+  }
+
+  &__img {
+    width: 100px;
+    height: 100px
+  }
+}
