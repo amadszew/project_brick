@@ -23,7 +23,7 @@ export const FullSetView = ({ sets }) => {
   } = setData;
   return (
     <div>
-      <img src={set_img_url} alt={name} />
+      <img width={500} height={500} src={set_img_url} alt={name} />
       <p>Name: {name}</p>
       <p>Number of part:{num_parts}</p>
       <p>Year: {year}</p>

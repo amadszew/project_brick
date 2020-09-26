@@ -85,9 +85,9 @@ export const Catalog = props => {
         <SetsList sets={setsBasedOnSelectedTheme} />
       </Route>
 
-      <Route path={`/catalog/sets/:id`}>
+      {/* <Route path={`/catalog/sets/:id`}>
         <FullSetView sets={sets}/>
-      </Route>
+      </Route> */}
 
     </main>
   );
