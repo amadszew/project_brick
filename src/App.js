@@ -136,6 +136,7 @@ const App = () => {
           <Catalog 
             themesStructure={themesStructure}
             setsMap={setsMap}
+            sets={sets}
           />
         </Route>
       </Router>

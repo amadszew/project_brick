@@ -8,16 +8,17 @@ import {
 
 import { Themes } from './Themes/Themes';
 import { SetsList } from './SetsList/SetsList';
+import { FullSetView } from './FullSetView/FullSetView'
 
 export const Catalog = props => {
   const [setsBasedOnSelectedTheme, setSetsBasedOnSelectedTheme] = useState([]);
-
 
   const location = useLocation();
   const match = useRouteMatch();
   const {
     setsMap,
-    themesStructure
+    themesStructure,
+    sets
   } = props;
 
   const filterSetsBasedOnThemes = id => {
@@ -80,8 +81,12 @@ export const Catalog = props => {
         />
       </Route>
         
-      <Route path={`${match.url}/themes/sets-list/:name`}>
+      <Route path={`${match.url}/themes/:name`}>
         <SetsList sets={setsBasedOnSelectedTheme} />
+      </Route>
+
+      <Route path={`/catalog/sets/:id`}>
+        <FullSetView sets={sets}/>
       </Route>
 
     </main>
