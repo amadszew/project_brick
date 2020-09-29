@@ -1,21 +1,27 @@
-import React, { useState } from 'react';
+import React, { useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-export const Search = () => {
-  const [search, setSearch] = useState("");
+export const Search = props => {
+  const {
+    search, 
+    onSearch, 
+    width,
+    placeholder
+  } = props;
 
-  const handleChange = ({target: {value}}) => {
-    setSearch(value)
-  }
+  const handleChange = useCallback(({target: {value}}) => {
+    onSearch(value)
+  }, [])  
 
   return (
     <div className="search">
-      <input 
+      <input
+        style={{width: width}}
         type="search"
         value={search}
         onChange={handleChange} 
-        placeholder="Search..." 
+        placeholder={placeholder} 
         className="search__input" />
       <button className="search__button">
         <FontAwesomeIcon icon={faSearch} />

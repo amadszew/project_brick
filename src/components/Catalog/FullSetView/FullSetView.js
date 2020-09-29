@@ -21,6 +21,7 @@ export const FullSetView = ({ sets }) => {
     num_parts,
     year
   } = setData;
+  
   return (
     <div>
       <img width={500} height={500} src={set_img_url} alt={name} />

@@ -34,9 +34,10 @@ export const SetsList = ({ sets }) => {
         </div>
       )}
 
-      <Route path={`${match.url}/sets/:id`}>
-        <FullSetView sets={sets}/>
-      </Route>
+      <Route 
+        path={`${match.url}/sets/:id`} 
+        render={() => <FullSetView sets={sets}/>} 
+      />
     </>
   );
 }

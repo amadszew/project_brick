@@ -6,9 +6,14 @@ import {
   useRouteMatch
 } from 'react-router-dom';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
+
 import { Themes } from './Themes/Themes';
 import { SetsList } from './SetsList/SetsList';
-import { FullSetView } from './FullSetView/FullSetView'
+
+import setImg from '../../assets/images/set_img.jpg';
+import minifigsImg from '../../assets/images/minifigs_img.jpg';
 
 export const Catalog = props => {
   const [setsBasedOnSelectedTheme, setSetsBasedOnSelectedTheme] = useState([]);
@@ -17,8 +22,7 @@ export const Catalog = props => {
   const match = useRouteMatch();
   const {
     setsMap,
-    themesStructure,
-    sets
+    themesStructure
   } = props;
 
   const filterSetsBasedOnThemes = id => {
@@ -61,34 +65,45 @@ export const Catalog = props => {
   }
   
   return (
-    <main className="catalog">
+    <section className="catalog">
       {location.pathname === '/catalog' && (
         <ul className="catalog__categories">
-          <li className="catalog__categories__link">
-            <Link to={`${match.url}/themes`}>Sets</Link>
+          <li className="catalog__categories__element">
+            <Link to={`${match.url}/themes`} className="catalog__link">
+              <span className="catalog__link__name">
+                Sets
+                <FontAwesomeIcon icon={faAngleRight} size="sm" className="catalog__link__icon"/>
+              </span>
+              <img src={setImg} className="catalog__link__img" alt="lego set"/>
+            </Link>
           </li>
 
-          <li className="catalog__categories__link">
-            <Link to={`${match.url}/minifigs`}> Minifigs</Link>
+          <li className="catalog__categories__element">
+            <Link to={`${match.url}/minifigs`} className="catalog__link">
+              <span className="catalog__link__name">
+                Minifigs
+                <FontAwesomeIcon icon={faAngleRight} size="sm" className="catalog__link__icon"/>
+              </span>
+              <img src={minifigsImg} className="catalog__link__img" alt="lego minifigs"/>
+            </Link>
           </li>
         </ul>
       )} 
 
-      <Route exact path={`${match.url}/themes`}>
-        <Themes
+      <Route 
+        exact path={`${match.url}/themes`}
+        render={() => (
+          <Themes
           themesStructure={themesStructure} 
-          onFilterSets={filterSetsBasedOnThemes}
-        />
-      </Route>
+          onFilterSets={filterSetsBasedOnThemes} /> 
+        )} 
+      />
+
+      <Route 
+        path={`${match.url}/themes/:name`}
+        render={() => <SetsList sets={setsBasedOnSelectedTheme} /> } 
+      /> 
         
-      <Route path={`${match.url}/themes/:name`}>
-        <SetsList sets={setsBasedOnSelectedTheme} />
-      </Route>
-
-      {/* <Route path={`/catalog/sets/:id`}>
-        <FullSetView sets={sets}/>
-      </Route> */}
-
-    </main>
+    </section>
   );
 }

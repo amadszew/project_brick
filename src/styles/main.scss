@@ -4,12 +4,15 @@
 @import '../components/Header/Header';
 @import '../components/Header/Nav//Nav';
 @import '../components/Header/LogIn/LogIn';
-@import '../components/Header/Search/Search';
 
 //Catalog
 @import "../components/Catalog/Catalog";
+@import "../components/Catalog/Themes/Themes";
 @import "../components/Catalog/SetsList/SetsList";
 @import "../components/Catalog/Set/Set";
+
+//utils
+@import "../utils/Search/Search";
 
 body {
   background: #fafafa;
@@ -19,4 +22,11 @@ body {
 
 a {
   text-decoration: none;
+}
+
+.content {
+  width: 100%;
+  height: calc(100vh - 85px);
+  display: flex;
+  flex-direction: column;
 }

@@ -128,17 +128,21 @@ const App = () => {
   return (
     <div className="App">
       <Router>
-        <Header /> 
-        <Route exact path="/">
-          <h1>Home</h1>
-        </Route>
-        <Route path="/catalog">
-          <Catalog 
-            themesStructure={themesStructure}
-            setsMap={setsMap}
-            sets={sets}
+        <Header />
+        <main className="content">
+          <Route exact path="/" render={() => <h1>Home</h1>} />
+
+          <Route 
+            path="/catalog" 
+            render={() => (
+              <Catalog 
+                themesStructure={themesStructure}
+                setsMap={setsMap}
+                sets={sets}
+              />
+            )} 
           />
-        </Route>
+        </main> 
       </Router>
     </div>
   );
