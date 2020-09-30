@@ -1,5 +1,8 @@
 @import "reset";
 
+//General styles
+@import "../App";
+
 //Header
 @import '../components/Header/Header';
 @import '../components/Header/Nav//Nav';
@@ -14,19 +17,3 @@
 //utils
 @import "../utils/Search/Search";
 
-body {
-  background: #fafafa;
-  color: #000;
-  font-size: 16px;
-}
-
-a {
-  text-decoration: none;
-}
-
-.content {
-  width: 100%;
-  height: calc(100vh - 85px);
-  display: flex;
-  flex-direction: column;
-}

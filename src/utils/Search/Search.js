@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
@@ -10,9 +10,9 @@ export const Search = props => {
     placeholder
   } = props;
 
-  const handleChange = useCallback(({target: {value}}) => {
+  const handleChange = ({target: {value}}) => {
     onSearch(value)
-  }, [])  
+  }
 
   return (
     <div className="search">

@@ -15,12 +15,12 @@ export const Themes = props => {
   const location = useLocation();
 
   useEffect(() => {
-    if (search.length > 1 || search.length === 0) {
-      const tempArr = Object.values(themesStructure);
-      const result = tempArr.filter(theme => (
-        theme.name.toLowerCase().includes(search.toLowerCase())
-      ))
-      setFilteredThemes(result);
+    if (search.length >= 2 || search.length === 0) {
+      setFilteredThemes(
+        Object.values(themesStructure).filter(theme => (
+          theme.name.toLowerCase().includes(search.toLowerCase())
+        ))
+      );
     }
   }, [search])
 
@@ -36,18 +36,23 @@ export const Themes = props => {
       </div>
       <hr className="themes__line" />
       <div className="themes__wrapper">
-        {Object.values(filteredThemes).map(({id, name}) => (
-          <Link 
-            className="themes__link"
-            to={`${location.pathname}/${name}`} 
-            key={id}
-            name={name} 
-            onClick={() => onFilterSets(id)}>
-            <span className="themes__link__text">{name}</span>
-          </Link>
-        ))}
+        {filteredThemes.length === 0 ? (
+          <h1 className="themes__statement">
+            Sorry but it seems that theme that you are trying to find doesn't exist.<br/> Maybe try to type a different phrase or at least two first characters. <br/>And you always can manually trawl through this list below :)
+          </h1>
+        ) : (
+          Object.values(filteredThemes).map(({id, name}) => (
+            <Link 
+              className="themes__link"
+              to={`${location.pathname}/${name}`} 
+              key={id}
+              onClick={() => onFilterSets(id)}>
+              <span className="themes__link__text">{name}</span>
+            </Link>
+          ))
+        )}
       </div>
     </div>
-  );
+  )
 }
 

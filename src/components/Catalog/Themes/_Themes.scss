@@ -31,7 +31,6 @@
   &__wrapper {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
   }
 
   &__link {
@@ -80,5 +79,11 @@
       font-weight: normal;
       text-shadow: 1px 1px #fff;
     }
+  }
+  &__statement {
+    padding: 0 20px;
+    margin-top: 20px;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
   }
 }

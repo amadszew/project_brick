@@ -25,8 +25,11 @@ export const SetsList = ({ sets }) => {
           {sets.map(set => (
             <Set 
               key={set.set_num}
-              name={set.name}
               img={set.set_img_url}
+              name={set.name}
+              itemNo={set.set_num}
+              nofParts={set.num_parts}
+              year={set.year}
               id={set.set_num}
               onSelect={handleSetSelected}
             />
