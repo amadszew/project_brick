@@ -17,7 +17,6 @@ import minifigsImg from '../../assets/images/minifigs_img.jpg';
 
 export const Catalog = props => {
   const [setsBasedOnSelectedTheme, setSetsBasedOnSelectedTheme] = useState([]);
-  const [themeName, setThemeName] = useState("");
 
   const location = useLocation();
   const match = useRouteMatch();

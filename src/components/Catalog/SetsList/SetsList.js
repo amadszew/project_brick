@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 
 import { Set } from '../Set/Set';
-import { FullSetView } from '../FullSetView/FullSetView'
+import { SetDetailed } from '../SetDetailed/SetDetailed'
 
 export const SetsList = ({ sets }) => {
   const history = useHistory();
@@ -39,7 +39,7 @@ export const SetsList = ({ sets }) => {
 
       <Route 
         path={`${match.url}/sets/:id`} 
-        render={() => <FullSetView sets={sets}/>} 
+        render={() => <SetDetailed sets={sets}/>} 
       />
     </>
   );
