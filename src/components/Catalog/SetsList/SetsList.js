@@ -1,7 +1,6 @@
 import React from 'react';
 import { 
   Route, 
-  useHistory, 
   useRouteMatch, 
   useLocation 
 } from 'react-router-dom';
@@ -10,13 +9,8 @@ import { Set } from '../Set/Set';
 import { SetDetailed } from '../SetDetailed/SetDetailed'
 
 export const SetsList = ({ sets }) => {
-  const history = useHistory();
   const match = useRouteMatch();
   const location = useLocation();
-
-  const handleSetSelected = id => {
-    history.push( `${match.url}/sets/${id}` )
-  }
 
   return (
     <>
@@ -31,7 +25,6 @@ export const SetsList = ({ sets }) => {
               nofParts={set.num_parts}
               year={set.year}
               id={set.set_num}
-              onSelect={handleSetSelected}
             />
           ))}
         </div>

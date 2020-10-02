@@ -13,12 +13,6 @@
     display: flex;
     justify-content: center;
 
-    &:hover, &:focus {
-      .overlay {
-        opacity: 1;
-      }
-    }
-
     &__wrapper {
       max-width: 600px;
       max-height: 600px;
@@ -39,6 +33,10 @@
         justify-content: center;
         align-items: center;
         transition: opacity .3s ease-in-out;
+
+        &:hover, &:focus {
+          opacity: 1;
+        }
   
         svg {
           color: #fff;

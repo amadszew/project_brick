@@ -6,6 +6,7 @@
     box-sizing: border-box;
     cursor: pointer;
     transition: all .3s ease-in-out;
+    color: #000;
 
     &:hover, &:focus {
       border-color: #333;
@@ -29,7 +30,7 @@
     }
 
     &__data {
-      margin-top: 5px;
+      margin-top: 20px;
       padding: 0 2.5px;
 
       &__title {
