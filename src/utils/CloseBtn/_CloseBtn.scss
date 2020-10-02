@@ -9,7 +9,7 @@
   padding: 0;
   cursor: pointer;
   
-  &:hover & {
+  &:hover &, &:focus & {
     &__sign {
       &:before, &:after {
         transform: rotate(0);
