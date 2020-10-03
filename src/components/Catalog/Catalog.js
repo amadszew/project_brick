@@ -32,21 +32,25 @@ export const Catalog = props => {
         <ul className="catalog__categories">
           <li className="catalog__categories__element">
             <Link to={`${match.url}/themes`} className="catalog__link">
-              <span className="catalog__link__name">
+              <div className="catalog__link__name">
                 Sets
                 <FontAwesomeIcon icon={faAngleRight} size="sm" className="catalog__link__icon"/>
-              </span>
-              <img src={setImg} className="catalog__link__img" alt="lego set"/>
+              </div>
+              <div className="catalog__link__img">
+                <img src={setImg} className="catalog__link__img--img" alt="lego set"/>
+              </div>
             </Link>
           </li>
 
           <li className="catalog__categories__element">
             <Link to={`${match.url}/minifigs`} className="catalog__link">
-              <span className="catalog__link__name">
+              <div className="catalog__link__name">
                 Minifigs
                 <FontAwesomeIcon icon={faAngleRight} size="sm" className="catalog__link__icon"/>
-              </span>
-              <img src={minifigsImg} className="catalog__link__img" alt="lego minifigs"/>
+              </div>
+              <div className="catalog__link__img">
+                <img src={minifigsImg} className="catalog__link__img--img" alt="lego minifigs"/>
+              </div>
             </Link>
           </li>
         </ul>
