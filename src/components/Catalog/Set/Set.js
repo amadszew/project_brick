@@ -1,9 +1,11 @@
 import React from 'react';
-import { Link, useRouteMatch } from 'react-router-dom';
+import { 
+  Link, 
+  useRouteMatch 
+} from 'react-router-dom';
 
 export const Set = props => {
   
-  const match = useRouteMatch();
   const {
     img, 
     name,
@@ -11,8 +13,9 @@ export const Set = props => {
     nofParts,
     year, 
     id } = props;
-
-
+  
+  const match = useRouteMatch();
+  
   return (
     <Link className="set" to={`${match.url}/sets/${id}`}>
       <div className="set__img">

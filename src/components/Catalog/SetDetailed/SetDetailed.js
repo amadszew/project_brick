@@ -6,12 +6,15 @@ import { faSearchPlus } from '@fortawesome/free-solid-svg-icons';
 
 import { FullScreen } from '../FullScreen/FullScreen';
 
-export const SetDetailed = ({ sets }) => {
-  const [setData, setSetData] = useState({});
+export const SetDetailed = props => {
+  
+  const { sets } = props; 
+
+  const [setData, setSetData] = useState(false);
   const [fullScreenMode, setFullScreenMode] = useState(false);
 
   const match = useRouteMatch();
-  const thisSetId = match.params.id
+  const thisSetId = match.params.id;
 
   useEffect(() => {
     sets.map(set => (
@@ -19,20 +22,20 @@ export const SetDetailed = ({ sets }) => {
         setSetData(set)
       )
     ))
-  }, [thisSetId]);
+  }, [sets]); 
 
   const {
     set_num,
     name,
     year,
     num_parts,
-    set_img_url
+    set_img_url,
   } = setData;
 
   const handleFullScreen = () => {
     setFullScreenMode(!fullScreenMode)
   }
-  
+
   return (
     <>
       <div className="set-detailed">
@@ -76,5 +79,5 @@ export const SetDetailed = ({ sets }) => {
           onFullScreen={handleFullScreen} />
       )}
     </>
-  );
+  )
 };

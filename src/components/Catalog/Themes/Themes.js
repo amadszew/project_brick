@@ -4,15 +4,19 @@ import { Link, useLocation } from 'react-router-dom';
 import { Search } from "../../../utils/Search/Search";
 
 export const Themes = props => {
-  const {
-    themesStructure, 
-    onFilterSets, 
-  } = props;
+
+  const { themesStructure } = props;
 
   const [search, setSearch] = useState("");
-  const [filteredThemes, setFilteredThemes] = useState(themesStructure);
+  const [filteredThemes, setFilteredThemes] = useState(false);
 
   const location = useLocation();
+
+  useEffect(() => {
+    if (Object.values(themesStructure).length !== 0 && themesStructure.constructor === Object) {
+      setFilteredThemes(themesStructure);
+    }
+  }, [themesStructure])
 
   useEffect(() => {
     if (search.length >= 2 || search.length === 0) {
@@ -44,9 +48,8 @@ export const Themes = props => {
           Object.values(filteredThemes).map(({id, name}) => (
             <Link 
               className="themes__link"
-              to={`${location.pathname}/${name}`} 
-              key={id}
-              onClick={() => onFilterSets(id)}>
+              to={`${location.pathname}/${name}/${id}`} 
+              key={id}>
               <span className="themes__link__text">{name}</span>
             </Link>
           ))

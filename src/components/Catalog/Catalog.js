@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { 
   Link, 
   Route,
@@ -16,54 +16,15 @@ import setImg from '../../assets/images/set_img.jpg';
 import minifigsImg from '../../assets/images/minifigs_img.jpg';
 
 export const Catalog = props => {
-  const [setsBasedOnSelectedTheme, setSetsBasedOnSelectedTheme] = useState([]);
-
-  const location = useLocation();
-  const match = useRouteMatch();
+  
   const {
     setsMap,
     themesStructure
   } = props;
-
-  const filterSetsBasedOnThemes = id => {
-
-    let filteredThemesArray = [];
-    setSetsBasedOnSelectedTheme([]);
-
-    const childrens = themesStructure[id].childrens;
-
-    const isNotEmptyObject = Object.values(childrens).length !== 0 && childrens.constructor === Object;
-
-    //* adding parent id to array
-    filteredThemesArray.push(id);
-
-    //* adding childs id to array
-    if (isNotEmptyObject) {
-      Object.values(childrens).forEach(child => {
-        filteredThemesArray.push(child.id)
-      });
-    }
-    
-    //* adding grandchilds id to array
-    Object.values(childrens).forEach(child => {
-      if (isNotEmptyObject) {
-        Object.values(child.childrens).forEach(grandchild => {
-          filteredThemesArray.push(grandchild.id)
-        })
-      }
-    })
-
-    //* filtering sets based on id inside array 
-    {Object.values(setsMap).forEach(sets => {
-      sets.map(set => {
-        if(filteredThemesArray.includes(set.theme_id)) {
-          setSetsBasedOnSelectedTheme(prev => [...prev, set])
-        }
-      })
-    })}
-
-  }
   
+  const location = useLocation();
+  const match = useRouteMatch();
+
   return (
     <section className="catalog">
       {location.pathname === '/catalog' && (
@@ -94,14 +55,17 @@ export const Catalog = props => {
         exact path={`${match.url}/themes`}
         render={() => (
           <Themes
-          themesStructure={themesStructure} 
-          onFilterSets={filterSetsBasedOnThemes} /> 
+            themesStructure={themesStructure} /> 
         )} 
       />
 
       <Route 
-        path={`${match.url}/themes/:name`}
-        render={() => <SetsList sets={setsBasedOnSelectedTheme} /> } 
+        path={`${match.url}/themes/:name/:id`}
+        render={() => (
+          <SetsList 
+            themesStructure={themesStructure} 
+            setsMap={setsMap} /> 
+        )}
       /> 
         
     </section>
