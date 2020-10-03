@@ -26,10 +26,34 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        color: #000;
+        color: #333;
         width: 100%;
         height: 100%;
         font-size: 1.1rem;
+        position: relative;
+
+        &:before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 0;
+          height: 1px;
+          background: #000;
+          transition: width .3s ease-in-out;
+        }
+
+        &:hover, 
+        &:focus,
+        &.active {
+          outline: none;
+          color: #000;
+
+          &:before {
+            width: 80%;
+            left: 10px;
+          }
+        }
       }
     }
   }

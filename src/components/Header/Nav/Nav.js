@@ -6,7 +6,7 @@ export const Nav = () => {
     <nav className="nav">
       <ul className="nav__list">
         <li className="nav__list__element">
-          <NavLink className="nav__list__element-link" to="/">
+          <NavLink className="nav__list__element-link" exact to="/">
             Home
           </NavLink>
         </li>
@@ -16,7 +16,7 @@ export const Nav = () => {
           </NavLink>
         </li>
         <li className="nav__list__element">
-          <NavLink className="nav__list__element-link" to="#">
+          <NavLink className="nav__list__element-link" to="/link">
             Link
           </NavLink>
         </li>

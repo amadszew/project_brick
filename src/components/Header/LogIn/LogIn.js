@@ -4,7 +4,7 @@ import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 export const LogIn = () => {
   return (
-    <button className="log-in">
+    <button disabled className="log-in">
       <FontAwesomeIcon icon={faUserCircle} className="log-in__icon"/>
       <span className="log-in__text">Log in / Register</span>
     </button>

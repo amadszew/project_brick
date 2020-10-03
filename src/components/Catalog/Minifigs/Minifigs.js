@@ -1,11 +1,9 @@
 import React from 'react';
 
-const Minifigs = () => {
+export const Minifigs = () => {
   return (
-    <div>
-      List of existing minifigs
-    </div>
+    <h1 className="in-progress">
+      Sorry but this component is still in progress. <br/> Come back soon!
+    </h1>
   );
 }
-
-export default Minifigs;

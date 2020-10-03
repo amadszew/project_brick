@@ -9,8 +9,9 @@ import { Set } from '../Set/Set';
 import { SetDetailed } from '../SetDetailed/SetDetailed';
 
 export const SetsList = props => {
-  
+
   const { setsMap, themesStructure } = props;
+  
   const [setsBasedOnSelectedTheme, setSetsBasedOnSelectedTheme] = useState([]); 
   
   const match = useRouteMatch();

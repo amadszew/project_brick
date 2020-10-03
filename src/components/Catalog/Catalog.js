@@ -11,6 +11,7 @@ import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 import { Themes } from './Themes/Themes';
 import { SetsList } from './SetsList/SetsList';
+import { Minifigs } from './Minifigs/Minifigs';
 
 import setImg from '../../assets/images/set_img.jpg';
 import minifigsImg from '../../assets/images/minifigs_img.jpg';
@@ -21,7 +22,7 @@ export const Catalog = props => {
     setsMap,
     themesStructure
   } = props;
-  
+
   const location = useLocation();
   const match = useRouteMatch();
 
@@ -66,6 +67,10 @@ export const Catalog = props => {
             themesStructure={themesStructure} 
             setsMap={setsMap} /> 
         )}
+      />
+
+      <Route path={`${match.url}/minifigs`}
+        render={() => <Minifigs />}
       /> 
         
     </section>
