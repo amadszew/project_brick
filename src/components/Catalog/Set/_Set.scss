@@ -1,5 +1,5 @@
   .set {
-    border: 1px solid #ccc;
+    border: 1px solid $color-theme-secondary;
     width: 210px;
     height: 230px;
     padding: 10px;
@@ -9,7 +9,7 @@
     color: #000;
 
     &:hover, &:focus {
-      border-color: #333;
+      border-color: darken($color-theme-secondary, 60%);
     }
     
     &__img {

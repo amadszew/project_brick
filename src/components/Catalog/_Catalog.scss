@@ -9,7 +9,7 @@
     height: 100%;
     display: flex;
     justify-content: center;
-    align-items: start;
+    align-items: flex-start;
 
     &__element {
       display: flex;
@@ -46,14 +46,14 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(#D2C726, #fff 45%);
+    background: linear-gradient($color-theme-accent, #fff 45%);
     
     &__name {
       font-size: 2rem;
       display: flex;
       justify-content: center;
-      align-items: start;
-      color: #333;
+      align-items: flex-start;
+      color: $color-font-main;
       text-shadow: 1px 1px #fff;
       padding: 60px 0 10px;
       width: 100%;
