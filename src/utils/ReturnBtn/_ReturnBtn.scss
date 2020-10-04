@@ -9,9 +9,11 @@
   padding: 0;
   cursor: pointer;
 
-  &:hover &, &:focus & {
+  &:hover &, 
+  &:focus & {
     &__line {
       border-radius: 2px;
+
       &--second {
         opacity: 0;
       }

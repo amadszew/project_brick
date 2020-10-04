@@ -42,7 +42,7 @@ export const Themes = props => {
       <div className="themes__wrapper">
         {filteredThemes.length === 0 ? (
           <h1 className="themes__statement">
-            Sorry but it seems that theme that you are trying to find doesn't exist.<br/> Maybe try to type a different phrase or at least two first characters. <br/>And you always can manually trawl through this list below :)
+            We couldn't find any themes matching your search
           </h1>
         ) : (
           Object.values(filteredThemes).map(({id, name}) => (

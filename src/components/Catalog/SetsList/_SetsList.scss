@@ -1,7 +1,45 @@
 .sets-list {
+  padding: 10px;
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: center;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__title {
+      font-size: 2.8rem;
+      color: $color-font-main;
+      margin: 0 0 15px 20px;
+    }
+
+    &__search {
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__line {
+    margin: 0 0 35px 20px;
+    border: 0;
+    height: 1.5px;
+    background: $color-theme-secondary;
+  }
+
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  &__statement {
+    padding: 0 20px;
+    margin-top: 20px;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+  }
 }
