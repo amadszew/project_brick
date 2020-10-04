@@ -18,6 +18,7 @@
       &--first, &--third {
         transform: rotate(0);
         width: 100%;
+        left: 0;
       }
       &--first {
         top: 0;
@@ -37,8 +38,6 @@
     width: 50px;
     height: 50px;
     position: relative;
-    transform: rotate(0deg);
-    transition: .5s ease-in-out;
     cursor: pointer;
   }
 
@@ -47,18 +46,17 @@
     position: absolute;
     left: 0;
     top: 23px;
-    height: 6px;
+    height: 5px;
     width: 100%;
     background: $color-theme-accent;
     border-radius: 4px;
     transform: rotate(0deg);
-    transition: .3s ease-in-out;
+    transition: .4s ease-in-out;
 
     &--first, &--third {
       width: 50%;
-      left: -3px;
+      left: -4px;
     }
-
     &--first {
       top: 15px;
       transform: rotate(135deg);
@@ -73,7 +71,8 @@
   }
 
   &__label { 
-    position: absolute;
+    display: block;
+    text-align: center;
     font-size: .7rem;
     line-height: 3rem;
     text-transform: uppercase;
@@ -81,6 +80,5 @@
     transition: all 0.3s ease-in;
     opacity: 0;
     cursor: pointer;
-    transform: translateX(-18px);
   }
 }
