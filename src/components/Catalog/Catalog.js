@@ -12,6 +12,7 @@ import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { Themes } from './Themes/Themes';
 import { SetsList } from './SetsList/SetsList';
 import { Minifigs } from './Minifigs/Minifigs';
+import { ReturnBtn } from '../../utils/ReturnBtn/ReturnBtn';
 
 import setImg from '../../assets/images/set_img.jpg';
 import minifigsImg from '../../assets/images/minifigs_img.jpg';
@@ -28,6 +29,9 @@ export const Catalog = props => {
 
   return (
     <section className="catalog">
+      {location.pathname !== '/catalog' && (
+        <ReturnBtn />
+      )}
       {location.pathname === '/catalog' && (
         <ul className="catalog__categories">
           <li className="catalog__categories__element">
