@@ -128,7 +128,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Header />
         <main className="content">
           <Route exact path="/" render={() => <Home />} />
