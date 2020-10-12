@@ -8,6 +8,7 @@ import 'core-js/features/array/is-array';
 
 import { Header } from './components/Header/Header';
 import { Catalog } from './components/Catalog/Catalog';
+import { Home } from './components/Home/Home';
 
 const APIThemes = 'https://rebrickable.com/api/v3/lego/themes/?key=348ddf6de615ae3d89f79a2f46007745&page_size=1000';
 const APISets = 'https://rebrickable.com/api/v3/lego/sets/?key=348ddf6de615ae3d89f79a2f46007745&page_size=1000&page=1';
@@ -130,7 +131,7 @@ const App = () => {
       <Router>
         <Header />
         <main className="content">
-          <Route exact path="/" render={() => <h1>Home</h1>} />
+          <Route exact path="/" render={() => <Home />} />
 
           <Route 
             path="/catalog" 
