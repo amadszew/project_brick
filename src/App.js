@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route
 } from 'react-router-dom';
 
@@ -128,7 +128,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router basename='/'>
         <Header />
         <main className="content">
           <Route exact path="/" render={() => <Home />} />
