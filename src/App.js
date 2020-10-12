@@ -131,7 +131,7 @@ const App = () => {
       <Router>
         <Header />
         <main className="content">
-          <Route exact path="/project_brick/" render={() => <Home />} />
+          <Route exact path="/" render={() => <Home />} />
 
           <Route 
             path="/catalog" 
